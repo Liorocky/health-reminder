@@ -851,13 +851,6 @@ const HTML_CONTENT = `<!DOCTYPE html>
 </html>\`;
 
 /**
- * Main request handler for Cloudflare Workers
- */
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request));
-});
-
-/**
  * Handle incoming requests
  * @param {Request} request
  */
@@ -903,4 +896,13 @@ async function handleRequest(request) {
                 }
             });
     }
-}`;`;`;
+}
+
+/**
+ * Export the default handler for Cloudflare Workers
+ */
+export default {
+    async fetch(request, env, ctx) {
+        return handleRequest(request);
+    }
+};`;`;`;
