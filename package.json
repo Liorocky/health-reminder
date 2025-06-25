@@ -1,0 +1,38 @@
+{
+  "name": "health-reminder",
+  "version": "1.0.0",
+  "description": "一个简约好用的健康提醒网页应用，部署在 Cloudflare Workers 上",
+  "main": "worker.js",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:local": "node scripts/dev.js --local",
+    "preview": "node scripts/dev.js --local",
+    "build": "echo \"Static build not required for Workers\"",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting configured\" && exit 0",
+    "clean": "echo \"No build artifacts to clean\" && exit 0"
+  },
+  "keywords": [
+    "health",
+    "reminder",
+    "productivity",
+    "timer",
+    "cloudflare-workers",
+    "web-app",
+    "pomodoro",
+    "wellness"
+  ],
+  "author": "Lior",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Liorocky/health-reminder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Liorocky/health-reminder/issues"
+  },
+  "homepage": "https://github.com/Liorocky/health-reminder#readme"
+}
