@@ -1,0 +1,7 @@
+{
+  "status": "healthy",
+  "service": "HealthFlow",
+  "version": "1.0.0",
+  "platform": "Cloudflare Pages",
+  "timestamp": "2025-06-25T00:00:00Z"
+}

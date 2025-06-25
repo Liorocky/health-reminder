@@ -1,13 +1,13 @@
 {
   "name": "health-reminder",
   "version": "1.0.0",
-  "description": "一个简约好用的健康提醒网页应用，部署在 Cloudflare Workers 上",
-  "main": "worker.js",
+  "description": "一个简约好用的健康提醒网页应用，部署在 Cloudflare Pages 上",
+  "main": "index.html",
   "scripts": {
     "dev": "node scripts/dev.js",
     "dev:local": "node scripts/dev.js --local",
-    "preview": "node scripts/dev.js --local",
-    "build": "echo \"Static build not required for Workers\"",
+    "preview": "node scripts/dev.js --preview",
+    "build": "echo \"Static build completed\"",
     "test": "echo \"No tests specified\" && exit 0",
     "lint": "echo \"No linting configured\" && exit 0",
     "clean": "echo \"No build artifacts to clean\" && exit 0"
@@ -17,10 +17,11 @@
     "reminder",
     "productivity",
     "timer",
-    "cloudflare-workers",
+    "cloudflare-pages",
     "web-app",
     "pomodoro",
-    "wellness"
+    "wellness",
+    "static-site"
   ],
   "author": "Lior",
   "license": "MIT",

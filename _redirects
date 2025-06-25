@@ -1,0 +1,11 @@
+# Redirects for Cloudflare Pages
+
+# Redirect common paths to index
+/app /index.html 200
+/home /index.html 200
+
+# Health check endpoint
+/health /health.json 200
+
+# 404 fallback
+/* /index.html 200

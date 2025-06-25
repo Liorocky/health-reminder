@@ -1,6 +1,6 @@
 # HealthFlow - 智能健康提醒应用
 
-一个简约好用的健康提醒网页应用，帮助你在工作中保持健康的生活习惯。
+一个简约好用的健康提醒网页应用，部署在 Cloudflare Pages 上，帮助你在工作中保持健康的生活习惯。
 
 ## ✨ 功能特性
 
@@ -15,7 +15,7 @@
 ## 🚀 快速开始
 
 ### 在线使用
-直接访问部署的应用：[HealthFlow](https://your-app-url.workers.dev)
+直接访问部署的应用：[HealthFlow](https://your-app-url.pages.dev)
 
 ### 本地开发
 
@@ -36,43 +36,63 @@
    ```
 
 4. **打开浏览器**
-   访问 `http://localhost:8787`
+   访问 `http://localhost:8080`
 
 ## 📁 项目结构
 
 ```
 health-reminder/
-├── src/                    # 源代码
-│   ├── worker.js          # Cloudflare Workers 脚本
-│   └── index.html         # HTML 模板
+├── index.html             # 主页面
+├── js/                    # JavaScript 文件
+│   └── app.js            # 主应用逻辑
 ├── docs/                  # 文档
-├── scripts/               # 部署脚本
-├── package.json           # 项目配置
-└── wrangler.toml         # Workers 配置
+├── scripts/               # 开发脚本
+├── _headers              # Cloudflare Pages 安全头配置
+├── _redirects            # 路由重定向配置
+├── health.json           # 健康检查端点
+└── package.json          # 项目配置
 ```
 
 详细说明请查看 [项目结构文档](docs/PROJECT-STRUCTURE.md)
 
 ## 🛠️ 部署
 
-### 部署到 Cloudflare Workers
+### 部署到 Cloudflare Pages
 
-1. **安装 Wrangler CLI**
+#### 方法一：通过 Git 集成（推荐）
+
+1. **推送代码到 Git 仓库**
    ```bash
-   npm install -g wrangler
+   git add .
+   git commit -m "Deploy to Cloudflare Pages"
+   git push origin main
    ```
 
-2. **登录 Cloudflare**
+2. **在 Cloudflare Dashboard 中**
+   - 登录 [Cloudflare Dashboard](https://dash.cloudflare.com)
+   - 进入 "Pages" 部分
+   - 点击 "Create a project"
+   - 连接你的 Git 仓库
+   - 设置构建配置：
+     - 构建命令：`echo "Static site, no build required"`
+     - 构建输出目录：`/`（根目录）
+   - 点击 "Save and Deploy"
+
+#### 方法二：直接上传
+
+1. **打包项目文件**
    ```bash
-   wrangler auth login
+   # 确保包含所有必要文件
+   # index.html, js/, _headers, _redirects, health.json
    ```
 
-3. **部署应用**
-   ```bash
-   npm run deploy
-   ```
+2. **在 Cloudflare Pages 中上传**
+   - 选择 "Upload assets"
+   - 拖拽项目文件夹或选择文件上传
 
-详细部署指南请查看 [部署文档](docs/README-deployment.md)
+### 环境变量配置
+
+无需额外的环境变量配置，应用为纯静态站点。
 
 ## 📖 使用说明
 
@@ -93,18 +113,17 @@ health-reminder/
 ### 可用脚本
 
 - `npm run dev` - 启动开发服务器
-- `npm run dev:local` - 本地模式开发
-- `npm run deploy` - 部署到生产环境
-- `npm run deploy:staging` - 部署到预发布环境
-- `npm run logs` - 查看实时日志
+- `npm run dev:local` - 本地静态文件服务器
+- `npm run preview` - 预览模式
+- `npm run build` - 构建项目（静态站点无需构建）
 
 ### 技术栈
 
 - **前端**: HTML5, CSS3, JavaScript (ES6+)
 - **样式**: Tailwind CSS
 - **图标**: Font Awesome
-- **部署**: Cloudflare Workers
-- **工具**: Wrangler CLI
+- **部署**: Cloudflare Pages
+- **开发**: Node.js 静态服务器
 
 ## 🤝 贡献
 
@@ -124,7 +143,7 @@ health-reminder/
 
 - [Tailwind CSS](https://tailwindcss.com/) - 优秀的 CSS 框架
 - [Font Awesome](https://fontawesome.com/) - 丰富的图标库
-- [Cloudflare Workers](https://workers.cloudflare.com/) - 强大的边缘计算平台
+- [Cloudflare Pages](https://pages.cloudflare.com/) - 快速的静态站点托管平台
 
 ---
 
