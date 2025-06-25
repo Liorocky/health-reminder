@@ -30,6 +30,6 @@ command = ""
 cwd = ""
 watch_dir = ""
 
-# Limits and settings
-[limits]
-cpu_ms = 50
+# Limits and settings (CPU limits not supported on Free plan)
+# [limits]
+# cpu_ms = 50
